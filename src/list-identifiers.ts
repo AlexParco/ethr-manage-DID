@@ -1,5 +1,4 @@
 import { agent } from "./veramo/setup.js";
-import { ethers } from 'ethers';
 
 const IFURA_API_KEY =  "101b75dde86248f7992b9504f13ce8dd"
 

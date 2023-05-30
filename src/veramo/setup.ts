@@ -20,7 +20,6 @@ import { getResolver as webDidResolver } from 'web-did-resolver'
 
 
 import { DataSource } from "typeorm"; 
-import { CredentialPlugin } from '@veramo/credential-w3c'
 
 const IFURA_API_KEY =  "acf8014cf7b2420e887b70cb2a704de6"
 
@@ -37,7 +36,6 @@ const dbConnection = new DataSource({
     logging: ['error', 'info', 'warn'],
     entities: Entities
 })
-
 
 export const agent = createAgent<IDIDManager 
 & IKeyManager & IDataStore & IDataStoreORM & 

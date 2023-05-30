@@ -9,7 +9,8 @@
     "id:create": "ts-node --esm ./src/create-identifier.ts",
     "id:delete": "ts-node --esm ./src/delete-identifier.ts",
     "id:delete-all": "ts-node --esm ./src/delete-all-identifier.ts",
-    "id:add-service": "ts-node --esm ./src/add-service-identifier.ts"
+    "id:add-service": "ts-node --esm ./src/add-service-identifier.ts",
+    "id:add-key": "ts-node --esm ./src/add-key-identifier.ts"
   },
   "keywords": [],
   "author": "",
