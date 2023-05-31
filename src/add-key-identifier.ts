@@ -1,4 +1,5 @@
 import { agent } from "./veramo/setup.js";
+const address = "0xa7D8612C70A68691B97BBDb19706DE4a581bAC9a"
 
 async function main() {
     const alias = process.argv[2];
@@ -19,7 +20,6 @@ async function main() {
     });
 
     await agent.didManagerAddKey({ did: did.did, key: newKey});
-
 }
 
 // handle error

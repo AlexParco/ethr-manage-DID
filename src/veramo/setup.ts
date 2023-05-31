@@ -18,10 +18,9 @@ import { EthrDidController } from 'ethr-did-resolver'
 import { getResolver as ethrDidResolver } from 'ethr-did-resolver'
 import { getResolver as webDidResolver } from 'web-did-resolver'
 
-
 import { DataSource } from "typeorm"; 
 
-const IFURA_API_KEY =  "acf8014cf7b2420e887b70cb2a704de6"
+const IFURA_API_KEY =  "6fb3131d92b047b3b7e00ffc4c431b85"
 
 const KMS_SECRET_KEY =  "9069ca5ae22527238513e8d2301962ad95cae8fd60f290ca498951c7415a0b8c"
 
@@ -38,8 +37,7 @@ const dbConnection = new DataSource({
 })
 
 export const agent = createAgent<IDIDManager 
-& IKeyManager & IDataStore & IDataStoreORM & 
-Resolver>({
+& IKeyManager & IDataStore & IDataStoreORM & IResolver>({
     plugins: [
         new KeyManager({
             store: new KeyStore(dbConnection),
@@ -49,24 +47,17 @@ Resolver>({
         }),
         new DIDManager({
             store: new DIDStore(dbConnection),
-            defaultProvider: 'did:ethr:rinkeby',
+            defaultProvider: 'did:ethr:goerli',
             providers: {
-                'did:ethr:rinkeby': new EthrDIDProvider({
+                'did:ethr:goerli': new EthrDIDProvider({
                     defaultKms: 'local',
-                    network: 'rinkeby',
-                    // deprecated rpcUrl
-                    rpcUrl: 'https://rinkeby.infura.io/v3/' + IFURA_API_KEY
+                    network: 'goerli',
+                    rpcUrl: 'https://goerli.infura.io/v3/' + IFURA_API_KEY,
                 }),
                 'did:web': new WebDIDProvider({
                     defaultKms: 'local'
                 }),
             }
-        }),
-        new DIDResolverPlugin({
-            resolver: new Resolver({
-                ...ethrDidResolver({ infuraProjectId: IFURA_API_KEY }),
-                ...webDidResolver()
-            })
-        }),
+        })
     ]
 })

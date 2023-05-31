@@ -9,8 +9,7 @@ async function main() {
     }
 
     const identity = await agent.didManagerCreate({
-        alias: alias,
-        provider: 'did:ethr:rinkeby'
+        alias,
     })
 
     console.log(`New identity created`)
