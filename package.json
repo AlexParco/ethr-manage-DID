@@ -5,29 +5,35 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "id:create": "ts-node --esm ./src/create-identifier.ts",
-    "id:delete": "ts-node --esm ./src/delete-identifier.ts",
-    "id:delete-all": "ts-node --esm ./src/delete-all-identifier.ts",
-    "id:list": "ts-node --esm ./src/list-identifiers.ts",
-    "id:add-service": "ts-node --esm ./src/add-service-identifier.ts",
-    "id:add-key": "ts-node --esm ./src/add-key-identifier.ts"
+    "id:create": "tsc && node ./dist/create-identifier.js",
+    "id:delete": "tsc && node ./dist/delete-identifier.js",
+    "id:delete-all": "tsc && node ./dist/delete-all-identifier.js",
+    "id:list": "tsc && node ./dist/list-identifiers.js",
+    "id:add-service": "tsc && node ./dist/add-service-identifier.js",
+    "id:add-key": "tsc && node ./dist/add-key-identifier.js",
+    "id:build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/inquirer": "^9.0.3",
     "@veramo/core": "^5.1.2",
     "@veramo/credential-w3c": "^5.1.2",
     "@veramo/data-store": "^5.1.2",
     "@veramo/did-manager": "^5.1.2",
     "@veramo/did-provider-ethr": "^5.1.2",
+    "@veramo/did-provider-key": "^5.2.0",
     "@veramo/did-provider-web": "^5.1.2",
     "@veramo/did-resolver": "^5.1.2",
-    "ethers": "^5.7.2",
     "@veramo/key-manager": "^5.1.2",
     "@veramo/kms-local": "^5.1.2",
+    "eth-provider": "^0.13.6",
+    "ethers": "^5.7.2",
     "ethr-did-resolver": "^7.0.2",
+    "inquirer": "^9.2.6",
     "sqlite3": "^5.1.2",
+    "ts-node": "^10.9.1",
     "web-did-resolver": "^2.0.21"
   }
 }
