@@ -11,6 +11,7 @@ async function main() {
     console.log('=================================');
     for (const id of identifiers) {
 
+        console.log(id)
         console.log(`Alias: ${id.alias || "No alias"}`);
         console.log(`Services:`);
         for(const service of id.services) {
@@ -25,9 +26,8 @@ async function main() {
         const provider = new ethers.providers.InfuraProvider('sepolia', '6fb3131d92b047b3b7e00ffc4c431b85')
 
         const wallet = new ethers.Wallet(id.did.split(':')[3].slice(4), provider)
-        const balance = await provider.getBalance(wallet.address);
 
-        console.log(wallet)
+        const balance = await provider.getBalance(wallet.address);
 
         console.log(`Balance: ${ethers.utils.formatEther(balance)}`);
 

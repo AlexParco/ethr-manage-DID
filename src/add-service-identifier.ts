@@ -10,7 +10,7 @@ async function main() {
         console.log('No alias provided. Usage: npm run id:add-service --alias <alias_name>');
         return;
     }
-    // const did = identifiers.find((id) => id.alias === alias);
+
     const allDids: IIdentifier[] = await agent.didManagerFind({alias})
     let didDetails: IIdentifier;
     let did: string;
